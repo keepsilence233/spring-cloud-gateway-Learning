@@ -1,0 +1,6 @@
+server:
+  port: 6061
+
+spring:
+  profiles:
+    include: remoteaddr

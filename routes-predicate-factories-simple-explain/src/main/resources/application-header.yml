@@ -1,0 +1,12 @@
+#id:唯一标识
+#uri:跳转地址
+#Header:请求头包含x-tanant-id并且值为666666时转发到{uri}
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: header_route
+          uri: http://www.cnblogs.com
+          predicates:
+            - Header= x-tenant-id,666666

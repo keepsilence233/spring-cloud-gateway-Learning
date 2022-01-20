@@ -1,0 +1,12 @@
+#id:唯一标识
+#uri:跳转地址
+#Cookie:带有名为(chocolate)的Cookie,并且符合正则ch.p的规则时才会转发请求到{uri}
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: cookie_route
+          uri: http://www.cnblogs.com
+          predicates:
+            - Cookie=chocolate, ch.p

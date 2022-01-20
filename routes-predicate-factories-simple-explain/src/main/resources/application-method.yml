@@ -1,0 +1,12 @@
+#id:唯一标识
+#uri:跳转地址
+#Method: 如果请求方法是GET或POST,则此路由匹配
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: method_route
+          uri: http://www.cnblogs.com
+          predicates:
+            - Method= GET,POST

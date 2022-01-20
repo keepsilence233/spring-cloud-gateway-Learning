@@ -1,0 +1,11 @@
+#如果请求路径是，则此路由匹配，例如：/red/1 或 /red/1/ 或 /red/blue 或 /blue/green。
+#segment是一个特殊的占位符，单层路径匹配
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: path_route
+          uri: http://www.cnblogs.com
+          predicates:
+            - Path=/red/{segment},/blue/*

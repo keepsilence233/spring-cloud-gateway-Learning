@@ -1,0 +1,12 @@
+#Query路由谓词工厂接受两个参数:一个必需的参数和一个可选的regexp(它是一个Java正则表达式)。
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: query_route
+          uri: http://www.cnblogs.com
+          predicates:
+            #如果请求包含[username]查询参数,则上述路由匹配。
+            # localhost:6061?username=leizzige
+            - Query=username

@@ -1,0 +1,12 @@
+#Query路由谓词工厂接受两个参数:一个必需的参数和一个可选的regexp(它是一个Java正则表达式)。
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: query2_route
+          uri: http://www.cnblogs.com
+          predicates:
+            #当且仅当请求带有名为[username]的参数，且参数值符合正则lei.
+            # localhost:6061?username=leizzige
+            - Query=username,lei.
