@@ -1,0 +1,12 @@
+#id:唯一标识
+#uri:跳转地址
+#Host: 当且仅当名为Host的Header符合**.somehost.org或**.anotherhost.org时,转发请求到{uri}
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: host_route
+          uri: http://www.cnblogs.com
+          predicates:
+            - Host= **.somehost.org,**.anotherhost.org

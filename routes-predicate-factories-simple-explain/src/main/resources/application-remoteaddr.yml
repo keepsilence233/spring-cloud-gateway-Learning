@@ -1,0 +1,12 @@
+#RemoteAddr路由谓词工厂接受一个源列表(最小大小为1)，它是cidr表示法(IPv4或IPv6)字符串，例如192.168.0.1/16(其中192.168.0.1是一个IP地址，16是一个子网掩码)。
+#如果请求的远端地址是，例如127.0.0.1:{port},则此路由匹配。
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: remoteaddr_route
+          uri: http://example.org
+          predicates:
+            #            - RemoteAddr=127.0.0.1/24
+            - RemoteAddr=127.0.0.1

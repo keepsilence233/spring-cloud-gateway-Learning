@@ -1,0 +1,12 @@
+#id:唯一标识
+#uri:跳转地址
+#Before:匹配[2017-01-20T17:42:47.789-07:00[America/Denver] 到 2022-01-23T17:42:47.789-07:00[America/Denver]]这个时间之间所有的请求到{uri}
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: between_route
+          uri: http://www.cnblogs.com
+          predicates:
+            - Between=2017-01-20T17:42:47.789-07:00[America/Denver], 2022-01-21T17:42:47.789-07:00[America/Denver]

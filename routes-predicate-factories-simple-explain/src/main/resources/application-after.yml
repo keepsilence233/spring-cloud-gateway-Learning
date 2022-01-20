@@ -1,0 +1,14 @@
+#id:唯一标识
+#uri:跳转地址
+#After:匹配[2017-01-20T17:42:47.789-07:00[America/Denver]]这个时间之后所有的请求到{uri}
+#localhost:6061/** -> http://www.cnblogs.com/**
+#eg:localhost:6061/leizzige -> http://www.cnblogs.com/leizzige
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: after_route
+          uri: http://www.cnblogs.com
+          predicates:
+            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
