@@ -1,0 +1,14 @@
+#PrefixPath GatewayFilter工厂只接受一个前缀参数。 配置PrefixPath GatewayFilter的示例如下:
+
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: prefixpath_route
+          uri: http://localhost:7000
+          predicates:
+            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+          filters:
+            #这将为所有匹配请求的路径添加前缀 /verification。因此，对 /hello 的请求将被发送到 /verification/hello。
+            - PrefixPath=/verification

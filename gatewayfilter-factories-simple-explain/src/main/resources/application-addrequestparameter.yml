@@ -1,0 +1,13 @@
+#AddRequestParameter GatewayFilter Factory 采用名称和值参数。
+#这会将 red=blue 添加到所有匹配请求的下游请求的查询字符串中。
+#eg:http://localhost:7000?red=blue 用@RequestParam接收
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: add_request_parameter_route
+          uri: http://localhost:7000
+          predicates:
+            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+          filters:
+            - AddRequestParameter=red, blue

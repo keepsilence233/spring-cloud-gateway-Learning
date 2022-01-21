@@ -1,0 +1,11 @@
+server:
+  port: 7000
+
+spring:
+  application:
+    name: verification-gateway-filter
+
+  #关闭gateway
+  cloud:
+    gateway:
+      enabled: false

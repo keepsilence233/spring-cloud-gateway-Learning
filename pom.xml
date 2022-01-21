@@ -11,6 +11,8 @@
 
     <modules>
         <module>routes-predicate-factories-simple-explain</module>
+        <module>gatewayfilter-factories-simple-explain</module>
+        <module>verification-gatewatfilter</module>
     </modules>
 
     <properties>

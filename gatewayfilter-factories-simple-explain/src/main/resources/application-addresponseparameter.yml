@@ -1,0 +1,13 @@
+
+#这会将 X-Response-Foo:Bar 标头添加到所有匹配请求的下游响应标头中。
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: add_response_header_route
+          uri: https://example.org
+          predicates:
+            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+          filters:
+            - AddResponseHeader=X-Response-Red, Blue

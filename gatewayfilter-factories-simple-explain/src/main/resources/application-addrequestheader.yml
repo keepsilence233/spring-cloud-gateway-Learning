@@ -1,0 +1,13 @@
+#AddRequestHeader GatewayFilter工厂接受一个名称和值参数。
+#为原始请求添加名为 X-Request-red ，值为 blue 的请求头。
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: add_request_header_route
+          uri: http://localhost:7000
+          predicates:
+            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+          filters:
+            - AddRequestHeader=X-Request-red, blue

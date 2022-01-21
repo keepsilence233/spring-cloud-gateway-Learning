@@ -1,0 +1,21 @@
+#DedupeResponseHeader GatewayFilter工厂接受一个名称参数和一个可选的策略参数。名称可以包含一个空格分隔的头名称列表。(剔除重复的响应头)
+#我们在Gateway以及微服务上都设置了CORS（解决跨域）header，如果不做任何配置，请求 -> 网关 -> 微服务，获得的响应就是这样的：
+#Access-Control-Allow-Credentials: true, true
+#Access-Control-Allow-Origin: https://musk.mars, https://musk.mars  header重复了,需要将重复的header去重,可以按照下面的示例设置(多个header用空格分隔)
+#- DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin, RETAIN_FIRST
+#去重策略:
+#RETAIN_FIRST: 默认值，保留第一个值
+#RETAIN_LAST: 保留最后一个值
+#RETAIN_UNIQUE: 保留所有唯一值，以它们第一次出现的顺序保留
+
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: dedupe_response_header_route
+          uri: https://example.org
+          predicates:
+            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+          filters:
+            - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin, RETAIN_FIRST

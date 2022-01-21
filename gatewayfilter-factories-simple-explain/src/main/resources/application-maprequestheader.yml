@@ -1,0 +1,17 @@
+#MapRequestHeader GatewayFilter工厂接受fromHeader和toHeader参数。
+#它创建了一个新的命名头(toHeader)，该值是从传入http请求的现有命名头(fromHeader)中提取出来的。
+#如果输入头不存在，则筛选器没有影响。 如果新的命名头已经存在，它的值将用新值扩充。
+
+
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: map_request_header_route
+          uri: http://127.0.0.1:7000
+          predicates:
+            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+          filters:
+            #这会将 X-Request-Red:<values> 标头添加到下游请求中，其中包含来自传入 HTTP 请求的 Blue 标头的更新值。
+            - MapRequestHeader=Blue, X-Request-Red
