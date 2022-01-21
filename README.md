@@ -16,3 +16,5 @@
 
 #### gateway-simple-explain 简单示例
 #### routes-predicate-factories 路由谓词工厂详解
+#### gatewayfilter-factories 路由过滤器详解,需要配合{verification-gatewatfilter}一起使用
+#### verification-gatewatfilter 一个单独的web服务,用来校验{gatewayfilter-factories}转发过来的请求
