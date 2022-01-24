@@ -1,0 +1,22 @@
+#当请求大小大于允许的限制时，RequestSize GatewayFilter工厂可以限制请求到达下游服务。
+#筛选器接受一个maxSize参数。 maxSize是一个“DataSize”类型，因此值可以定义为一个数字，后跟一个可选的DataUnit后缀，如“KB”或“MB”。 对于字节，默认值是'B'。
+#它是以字节为单位定义的请求允许的大小限制。 下面的列表配置了一个RequestSize GatewayFilter:
+
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: request_size_route
+          uri: http://localhost:7000/verification/upload
+          predicates:
+            - Path=/verification/upload
+          filters:
+            - name: RequestSize
+              args:
+                maxSize: 1000000    #为后端服务设置收到的最大请求包大小。如果请求大小超过设置的值，则返回 413 Payload Too Large 。默认值是5M
+
+
+
+                #当请求因为大小而被拒绝时，RequestSize GatewayFilter工厂将响应状态设置为413 Payload Too Large，并附加一个报头errorMessage。下面的例子展示了这样一个errorMessage:
+                #errorMessage` : `Request size is larger than permissible limit. Request size is 6.0 MB where permissible limit is 5.0 MB

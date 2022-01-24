@@ -4,7 +4,7 @@ spring:
   application:
     name: gateway-filter-factories
   profiles:
-    include: prefixpath
+    include: defaultfilters
 logging:
   level:
     org.springframework.cloud.gateway: trace

@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: setpath_route
+          uri: http://127.0.0.1:7000
+          predicates:
+            # 匹配URL的请求,将匹配的请求追加在目标URI之后
+            - Path=/api/verification/{segment}
+            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+          filters:
+            # 将/api/verification/setPath 重写为: /verification/setPath
+            - SetPath=/verification/{segment}

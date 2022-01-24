@@ -1,0 +1,10 @@
+#SetRequestHeader GatewayFilter工厂接受name和value参数。
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: setresponseheader_route
+          uri: https://example.org
+          filters:
+            #请求带有名为 X-Response-Red 的请求头，则将值改为替换成 Blue
+            - SetResponseHeader=X-Response-Red, Blue

@@ -1,0 +1,18 @@
+
+#SetStatus GatewayFilter工厂只接受一个参数status。 它必须是一个有效的Spring HttpStatus。 它可以是整数值404，也可以是枚举的字符串表示:NOT_FOUND。
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: setstatusstring_route
+          predicates:
+            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+          uri: http://example.org
+          filters:
+            - SetStatus=401
+        - id: setstatusint_route
+          predicates:
+            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+          uri: http://example.org
+          filters:
+            - SetStatus=401

@@ -1,0 +1,7 @@
+#Retry GatewayFilter工厂支持以下参数:
+#retries:应该尝试的重试次数。
+#statuses:应该重试的HTTP状态码，使用org.springframework.http.HttpStatus表示。
+#methods:应该重试的HTTP方法，使用org.springframework.http.HttpMethod表示。
+#series:要重试的一系列状态码，由org.springframework.http.HttpStatus.Series表示。
+#exceptions:应该重试的抛出异常列表。
+#backoff:为重试配置的指数回退。 重试在退退间隔为firstBackoff *(因子^ n)后执行，其中n是迭代。 如果配置了maxBackoff，则最大回退限制为maxBackoff。 如果basedOnPreviousValue为true，则通过使用prevBackoff *因子计算回退。

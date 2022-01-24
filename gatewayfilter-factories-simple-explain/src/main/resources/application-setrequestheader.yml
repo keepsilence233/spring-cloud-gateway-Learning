@@ -1,0 +1,13 @@
+#SetRequestHeader GatewayFilter工厂接受name和value参数。
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: setrequestheader_route
+          uri: http://localhost:7000
+          predicates:
+            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+          filters:
+            #后端服务响应带有名为 X-Request-Red 的响应头，则将值改为替换成 blue
+            - SetRequestHeader=X-Request-Red, Blue

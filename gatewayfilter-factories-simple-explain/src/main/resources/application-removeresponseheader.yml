@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: removeresponseheader_route
+          uri: https://example.org
+          predicates:
+            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+          filters:
+            #删除名为 X-Request-Foo 的响应头
+            - RemoveResponseHeader=X-Response-Foo

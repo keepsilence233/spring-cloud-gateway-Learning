@@ -1,0 +1,16 @@
+#RedirectTo GatewayFilter工厂接受两个参数，状态和url。 状态参数应该是一个300系列重定向HTTP代码，例如301。
+#url参数应该是一个有效的url。 这是Location报头的值。
+#对于相对重定向，你应该使用uri: no://op作为你路由定义的uri。 下面的列表配置了一个RedirectTo GatewayFilter:
+
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: prefixpath_route
+          uri: https://example.org
+          predicates:
+            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+          filters:
+            #这将发送一个带有Location: http://localhost:7000/verification/redirectTo报头的状态302来执行重定向。
+            - RedirectTo=302, http://localhost:7000/verification/redirectTo

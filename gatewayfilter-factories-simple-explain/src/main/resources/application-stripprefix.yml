@@ -1,0 +1,14 @@
+
+
+#数字表示要截断的路径的数量。如上配置，如果请求的路径为 /name/bar/foo ，则路径会修改为/foo ，也就是会截断2个路径。
+#eg:
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: nameRoot
+          uri: http://www.baidu.com
+          predicates:
+            - Path=/api/**
+          filters:
+            - StripPrefix=1

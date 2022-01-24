@@ -1,0 +1,13 @@
+#RemoveRequestHeader GatewayFilter工厂接受一个name参数。 它是要删除的头的名称。
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: removerequestheader_route
+          uri: http://localhost:7000
+          predicates:
+            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+          filters:
+            #为原始请求删除名为 X-Request-Foo 的请求头
+            - RemoveRequestHeader=X-Request-Foo

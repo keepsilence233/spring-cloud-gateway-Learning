@@ -1,0 +1,13 @@
+#要添加过滤器并将其应用于所有路由，您可以使用 spring.cloud.gateway.default-filters。此属性采用过滤器列表。以下清单定义了一组默认过滤器：
+
+spring:
+  cloud:
+    gateway:
+      default-filters:
+        - AddResponseHeader=X-Response-Default-Red, Default-Blue
+        - PrefixPath=/api
+      routes:
+        - id: default_filters_route
+          uri: http://example.org
+          predicates:
+            - After=2017-01-20T17:42:47.789-07:00[America/Denver]
