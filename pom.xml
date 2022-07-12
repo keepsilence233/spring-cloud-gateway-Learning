@@ -13,6 +13,7 @@
         <module>routes-predicate-factories-simple-explain</module>
         <module>gatewayfilter-factories-simple-explain</module>
         <module>verification-gatewatfilter</module>
+        <module>gateway-simple-explain</module>
     </modules>
 
     <properties>
